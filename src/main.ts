@@ -5,24 +5,35 @@ import { AdsScene } from './scenes/AdsScene';
 import { SnakeGameScene } from './scenes/SnakeGameScene';
 import { ReplayScene } from './scenes/ReplayScene';
 
-const appContainer = document.querySelector<HTMLDivElement>('#app')!;
-const sceneManager = new SceneManager(appContainer);
+class App {
+  private sceneManager: SceneManager;
+  private container: HTMLElement;
 
-function showGreeting() {
-  sceneManager.changeScene(new GreetingScene(appContainer, showAds));
+  constructor(containerId: string) {
+    this.container = document.querySelector<HTMLDivElement>(containerId)!;
+    this.sceneManager = new SceneManager(this.container);
+  }
+
+  start() {
+    this.showGreeting();
+  }
+
+  private showGreeting = () => {
+    this.sceneManager.changeScene(new GreetingScene(this.container, this.showAds));
+  }
+
+  private showAds = () => {
+    this.sceneManager.changeScene(new AdsScene(this.container, this.showGame));
+  }
+
+  private showGame = () => {
+    this.sceneManager.changeScene(new SnakeGameScene(this.container, this.showReplay));
+  }
+
+  private showReplay = () => {
+    this.sceneManager.changeScene(new ReplayScene(this.container, this.showAds));
+  }
 }
 
-function showAds() {
-  sceneManager.changeScene(new AdsScene(appContainer, showGame));
-}
-
-function showGame() {
-  sceneManager.changeScene(new SnakeGameScene(appContainer, showReplay));
-}
-
-function showReplay() {
-  sceneManager.changeScene(new ReplayScene(appContainer, showAds));
-}
-
-// Запуск первой сцены
-showGreeting();
+const app = new App('#app');
+app.start();

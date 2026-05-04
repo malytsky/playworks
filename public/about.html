@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Об игре Змейка - Полезная информация</title>
+    <link rel="stylesheet" href="static-style.css">
+</head>
+<body class="static-page">
+    <div id="app">
+        <div class="static-container">
+            <h1>Об игре Змейка</h1>
+            <div class="static-content">
+                <h2>Описание</h2>
+                <p>Наша "Змейка" — это современная реализация классической аркады. Мы сохранили дух оригинальной игры, добавив плавную анимацию и удобное управление. Игра работает прямо в браузере и не требует установки. Основная цель — вырастить как можно более длинную змейку, поедая корм и избегая столкновений.</p>
+                
+                <h2>Советы</h2>
+                <ul>
+                    <li><strong>Планируйте маршрут:</strong> Старайтесь не зажимать себя в углу.</li>
+                    <li><strong>Держитесь края:</strong> На ранних этапах игры движение вдоль стен помогает систематизировать сбор еды.</li>
+                    <li><strong>Не спешите:</strong> Скорость змейки постоянна, но ваши реакции должны быть точными.</li>
+                    <li><strong>Используйте всё пространство:</strong> Чем длиннее змейка, тем важнее эффективно использовать каждый свободный пиксель.</li>
+                </ul>
+
+                <h2>О сайте</h2>
+                <p>Этот сайт создан для любителей ретро-игр. Мы стремимся предоставить лучший игровой опыт без лишних отвлекающих факторов. Сайт оптимизирован для работы на различных устройствах и поддерживает высокие стандарты производительности.</p>
+            </div>
+            <div class="menu-options" style="margin-top: 20px;">
+                <div class="menu-option selected" onclick="window.location.href='/'">Вернуться (Enter)</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const content = document.querySelector('.static-content');
+        const scrollStep = 50;
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                window.location.href = '/';
+            } else if (e.key === 'ArrowUp') {
+                content.scrollBy({ top: -scrollStep, behavior: 'smooth' });
+            } else if (e.key === 'ArrowDown') {
+                content.scrollBy({ top: scrollStep, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>

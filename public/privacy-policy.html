@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности - Игра Змейка</title>
+    <link rel="stylesheet" href="static-style.css">
+</head>
+<body class="static-page">
+    <div id="app">
+        <div class="static-container">
+            <h1>Политика конфиденциальности</h1>
+            <div class="static-content">
+                <p>Настоящая Политика конфиденциальности описывает, как мы собираем, используем и защищаем вашу информацию при использовании нашего сайта.</p>
+
+                <h2>1. Сбор информации</h2>
+                <p>Мы не собираем личные данные пользователей напрямую. Однако мы можем использовать сторонние сервисы, такие как Google AdSense, которые могут собирать данные для показа персонализированной рекламы.</p>
+
+                <h2>2. Использование файлов cookie</h2>
+                <p>Мы используем файлы cookie для улучшения работы сайта и анализа трафика. Сторонние поставщики, включая Google, используют файлы cookie для показа объявлений с учетом предыдущих посещений этого сайта или других ресурсов в интернете.</p>
+
+                <h2>3. Реклама Google AdSense</h2>
+                <p>Пользователи могут отказаться от показа персонализированной рекламы в разделе <a href="https://adssettings.google.com/">Настройки рекламных предпочтений</a>.</p>
+
+                <h2>4. Контакты</h2>
+                <p>Если у вас есть вопросы по поводу нашей политики конфиденциальности, вы можете связаться с нами по адресу: <a href="mailto:malytsky@gmail.com">malytsky@gmail.com</a></p>
+            </div>
+            <div class="menu-options" style="margin-top: 20px;">
+                <div class="menu-option selected" onclick="window.location.href='/'">Вернуться (Enter)</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const content = document.querySelector('.static-content');
+        const scrollStep = 50;
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                window.location.href = '/';
+            } else if (e.key === 'ArrowUp') {
+                content.scrollBy({ top: -scrollStep, behavior: 'smooth' });
+            } else if (e.key === 'ArrowDown') {
+                content.scrollBy({ top: scrollStep, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>

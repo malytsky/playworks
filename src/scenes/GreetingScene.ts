@@ -12,6 +12,7 @@ export class GreetingScene extends MenuScene {
       { label: 'Да', action: () => this.onStart() },
       { label: 'Нет', action: () => window.location.href = 'https://google.com' }
     ];
+    this.selectedIndex = 0;
   }
 
   init(): void {
@@ -19,6 +20,8 @@ export class GreetingScene extends MenuScene {
   }
 
   getQuestion(): string {
-    return 'Будете играть?';
+    return `
+      <h2 style="font-size: 3em; color: #44ff44; margin: 20px 0;">Будете играть?</h2>
+    `;
   }
 }
